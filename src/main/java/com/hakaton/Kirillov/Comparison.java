@@ -1,13 +1,9 @@
 package com.hakaton.Kirillov;
 
-import com.hakaton.Kirillov.config.BotConfig;
 import com.hakaton.Kirillov.models.Cript;
 import com.hakaton.Kirillov.models.CriptServise;
-import com.hakaton.Kirillov.models.Users;
-import com.hakaton.Kirillov.models.UsersServise;
 import com.hakaton.Kirillov.telegram.TelegramBot;
 import lombok.SneakyThrows;
-import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.util.List;
 
@@ -18,7 +14,7 @@ public class Comparison {
         List<Cript> oldCost = CriptServise.getCriptList();
         ParseCourseToBd.parse(readSite.read());
         List<Cript> newCost = CriptServise.getCriptList();
-        TelegramBot Bot = new TelegramBot();
+        /*TelegramBot Bot = new TelegramBot();
 
         for(int i = 0; i < oldCost.size()-1; i++){
             StringBuilder massage = new StringBuilder();
@@ -44,7 +40,7 @@ public class Comparison {
             }
 
 
-        }
+        }*/
 
 
 

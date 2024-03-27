@@ -35,7 +35,10 @@ public class CriptServise {
     public static List<Cript> getCriptList(){
         HibernateUtils.startSession().beginTransaction();
         HibernateUtils.getSession().getTransaction().begin();
+        System.out.println("trans start");
         List<Cript> criptList = HibernateUtils.getSession().createQuery("FROM Cript").list();
+        HibernateUtils.closeSession();
+        System.out.println("trans end");
         return criptList;
     }
     public static void deleteCript(Long id){

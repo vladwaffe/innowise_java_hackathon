@@ -7,6 +7,7 @@ import com.hakaton.Kirillov.models.CriptServise;
 import com.hakaton.Kirillov.models.Users;
 import com.hakaton.Kirillov.models.UsersServise;
 import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
@@ -17,11 +18,7 @@ import java.util.List;
 @Component
 @AllArgsConstructor
 public class TelegramBot extends TelegramLongPollingBot {
-    private static BotConfig botConfig;
-
-    public static BotConfig getBotConfig() {
-        return botConfig;
-    }
+    private final BotConfig botConfig;
 
     @Override
     public String getBotUsername() {
@@ -40,7 +37,6 @@ public class TelegramBot extends TelegramLongPollingBot {
         if(update.hasMessage() && update.getMessage().hasText()){
             String messageText = update.getMessage().getText();
             long chatId = update.getMessage().getChatId();
-
 
             switch (messageText){
                 case "/start":
@@ -86,6 +82,7 @@ public class TelegramBot extends TelegramLongPollingBot {
     private void allCourseOfCripta(Long chatId) throws TelegramApiException {
         System.out.println("start");
         List<Cript> criptList = CriptServise.getCriptList();
+        System.out.println("end read");
         StringBuilder answer = new StringBuilder();
         for(Cript element : criptList){
             answer.append(element.getName() + "   " + element.getCost() + "\n");

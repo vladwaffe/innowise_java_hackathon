@@ -7,9 +7,9 @@ import java.util.concurrent.TimeUnit;
 public class Main {
     public static void main(String[] args) {
         SpringBootApp.startBot();
-        ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
+        //ScheduledExecutorService executor = Executors.newSingleThreadScheduledExecutor();
 
-        executor.scheduleAtFixedRate(Comparison::comparisonCost, 0, 15, TimeUnit.SECONDS);
+        //executor.scheduleAtFixedRate(Comparison::comparisonCost, 0, 15, TimeUnit.SECONDS);
 
 
     }
